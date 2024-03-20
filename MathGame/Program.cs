@@ -1,14 +1,23 @@
-﻿string? readResult;
-string menuSelection = "";
-int firstNumber = 0;
-int secondNumber = 0;
-int result = 0;
+﻿Console.WriteLine("Welcome to Math game!");
+string name = GetName();
 
-Console.WriteLine("Welcome to Math game!\n");
 
-do
+
+Menu(name);
+
+string GetName()
 {
-    Console.WriteLine("Choose one option of the following:");
+    Console.WriteLine("Enter your name: ");
+    var name = Console.ReadLine();
+    return name;
+}
+void Menu(string? name)
+{
+    Console.WriteLine($"Hello, {name}! It's {DateTime.UtcNow}. This is your math's game.");
+    Console.WriteLine("-----------------------------------------------------------------");
+
+
+    Console.WriteLine("What game do you want to play today? Choose one option of the following:");
     Console.WriteLine("1. (+) Addition.");
     Console.WriteLine("2. (-) Subtraction.");
     Console.WriteLine("3. (*) Multiplication.");
@@ -17,49 +26,45 @@ do
     Console.WriteLine("Write \"exit\" to close the game. ");
 
 
-    readResult = Console.ReadLine();
-    if (readResult != null)
-        menuSelection = readResult.Trim().ToLower();
-
-    if (menuSelection == "1" || menuSelection == "2" || menuSelection == "3" || menuSelection == "4")
-    {
-        Console.Write("Enter the first number: ");
-        firstNumber = int.Parse(Console.ReadLine());
-
-        Console.Write("Enter the second number: ");
-        secondNumber = int.Parse(Console.ReadLine());
-
-    }
+    var menuSelection = Console.ReadLine();
 
     switch (menuSelection)
     {
         case "1":
-            result = firstNumber + secondNumber;
-            Console.WriteLine($"{firstNumber} + {secondNumber} = {result}\n");
-            break; 
+            AdditionGame("Addition game selected");
+            break; //Addition
         case "2":
-            result = firstNumber - secondNumber;
-            Console.WriteLine($"{firstNumber} - {secondNumber} = {result}\n");
-            break; 
+            SubtractionGame("Subtraction game selected");
+            break; //Subtraction
         case "3":
-            result = firstNumber * secondNumber;
-            Console.WriteLine($"{firstNumber} * {secondNumber} = {result} \n");
-            break;
+            MultiplicationGame("Multiplication game selected");
+            break; //Multiplication
         case "4":
-            if (firstNumber % secondNumber == 0)
-            {
-                result = firstNumber / secondNumber;
-                Console.WriteLine($"{firstNumber} / {secondNumber} = {result} \n");
-            }
-            else
-                Console.WriteLine("Please Check that the division Should return integer value\n");
-            break;        
+            DivisionGame("division game selected");
+
+            break; //Division       
         case "5":
             Console.WriteLine("This Feature not added yet. Try again later\n");
-            break;        
+            break;
         default:
             Console.WriteLine("You entered a wrong value. Please try again.\n");
             break;
     }
+}
+void AdditionGame(string message)
+{
+    Console.WriteLine(message);
+}
+void SubtractionGame(string message)
+{
+    Console.WriteLine(message);
+}
+void MultiplicationGame(string message)
+{
+    Console.WriteLine(message);
+}
+void DivisionGame(string message)
+{
+    Console.WriteLine(message);
+}
 
-}while (menuSelection != "exit");
