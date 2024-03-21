@@ -2,6 +2,7 @@
 
 Console.WriteLine("Welcome to Math game!");
 
+List<string> gamesHistory = new List<string>();
 string name = GetName();
 
 Menu(name);
@@ -14,13 +15,13 @@ string GetName()
 }
 void Menu(string? name)
 {
-    Console.Clear();
     Console.WriteLine($"Hello, {name}! It's {DateTime.UtcNow}. This is your math's game.");
     Console.WriteLine("-----------------------------------------------------------------");
 
     bool isGameOn = true;
     do
     {
+        Console.Clear() ;
         Console.WriteLine("What game do you want to play today? Choose one option of the following:");
         Console.WriteLine("1. (+) Addition.");
         Console.WriteLine("2. (-) Subtraction.");
@@ -45,10 +46,9 @@ void Menu(string? name)
                 break; //Multiplication
             case "4":
                 DivisionGame("division game selected");
-
                 break; //Division       
             case "5":
-                Console.WriteLine("This Feature not added yet. Try again later\n");
+                GetGames();
                 break;
             case "exit":
                 isGameOn = false;
@@ -59,6 +59,19 @@ void Menu(string? name)
         }
     }while (isGameOn);
 }
+
+void GetGames()
+{
+    Console.Clear();
+    Console.WriteLine("Games History: ");
+    foreach(var game in gamesHistory)
+    {
+        Console.WriteLine(game);
+    }
+    Console.WriteLine("Press any key to go to the menu.");
+    Console.ReadLine();
+}
+
 void AdditionGame(string message)
 {
     Console.Clear();
@@ -86,9 +99,16 @@ void AdditionGame(string message)
             Console.ReadLine();
         }
     }
-    Console.WriteLine($"Game Over. Your score is {score}.Press Any kkey to go back to menu.");
+    Console.WriteLine($"Game Over. Your score is {score}.Press Any key to go back to menu.");
     Console.ReadLine();
+    AddToHistory(score, "Addition");
 }
+
+void AddToHistory(int gameScore, string gameType)
+{
+    gamesHistory.Add($"{DateTime.Now} - {gameType}: {gameScore} pts.");
+}
+
 void SubtractionGame(string message)
 {
     Console.Clear();
@@ -118,6 +138,7 @@ void SubtractionGame(string message)
     }
     Console.WriteLine($"Game Over. Your score is {score}.Press Any kkey to go back to menu.");
     Console.ReadLine();
+    AddToHistory(score, "subtraction");
 }
 void MultiplicationGame(string message)
 {
@@ -148,6 +169,7 @@ void MultiplicationGame(string message)
     }
     Console.WriteLine($"Game Over. Your score is {score}.Press Any kkey to go back to menu.");
     Console.ReadLine();
+    AddToHistory(score, "Multiplication");
 }
 void DivisionGame(string message)
 {
@@ -176,6 +198,7 @@ void DivisionGame(string message)
     }
     Console.WriteLine($"Game Over. Your score is {score}.Press Any kkey to go back to menu.");
     Console.ReadLine();
+    AddToHistory(score, "Division");
 }
 
 int[] GetDivisionNumbers()
