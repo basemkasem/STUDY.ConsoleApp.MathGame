@@ -38,7 +38,7 @@
                         engine.DivisionGame("division game selected");
                         break; //Division       
                     case "5":
-                        Helpers.GetGames();
+                        Helpers.PrintGames();
                         break;
                     case "exit":
                         isGameOn = false;

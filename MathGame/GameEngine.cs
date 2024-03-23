@@ -1,4 +1,6 @@
-﻿namespace MathGame
+﻿using MathGame.Modles;
+
+namespace MathGame
 {
     internal class GameEngine
     {
@@ -29,9 +31,9 @@
                     Console.ReadLine();
                 }
             }
-            Console.WriteLine($"Game Over. Your score is {score}.Press Any key to go back to menu.");
+            Console.WriteLine($"Game Over. Your score is {score}. Press Any key to go back to menu.");
             Console.ReadLine();
-            Helpers.AddToHistory(score, "Addition");
+            Helpers.AddToHistory(score, GameType.Addition);
         }
         internal void SubtractionGame(string message)
         {
@@ -60,9 +62,9 @@
                     Console.ReadLine();
                 }
             }
-            Console.WriteLine($"Game Over. Your score is {score}.Press Any kkey to go back to menu.");
+            Console.WriteLine($"Game Over. Your score is {score}. Press Any kkey to go back to menu.");
             Console.ReadLine();
-            Helpers.AddToHistory(score, "subtraction");
+            Helpers.AddToHistory(score, GameType.Subtraction);
         }
         internal void MultiplicationGame(string message)
         {
@@ -91,9 +93,9 @@
                     Console.ReadLine();
                 }
             }
-            Console.WriteLine($"Game Over. Your score is {score}.Press Any kkey to go back to menu.");
+            Console.WriteLine($"Game Over. Your score is {score}. Press Any kkey to go back to menu.");
             Console.ReadLine();
-            Helpers.AddToHistory(score, "Multiplication");
+            Helpers.AddToHistory(score, GameType.Multiplication);
         }
         internal void DivisionGame(string message)
         {
@@ -120,9 +122,9 @@
                     Console.ReadLine();
                 }
             }
-            Console.WriteLine($"Game Over. Your score is {score}.Press Any kkey to go back to menu.");
+            Console.WriteLine($"Game Over. Your score is {score}. Press Any kkey to go back to menu.");
             Console.ReadLine();
-            Helpers.AddToHistory(score, "Division");
+            Helpers.AddToHistory(score, GameType.Division);
         }
     }
 }
