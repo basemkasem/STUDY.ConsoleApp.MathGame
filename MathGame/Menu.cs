@@ -7,6 +7,7 @@
         {
             Console.WriteLine($"Hello, {name}! It's {DateTime.UtcNow}. This is your math's game.");
             Console.WriteLine("-----------------------------------------------------------------");
+            Console.ReadLine();
 
             bool isGameOn = true;
             do
@@ -41,6 +42,7 @@
                         Helpers.PrintGames();
                         break;
                     case "exit":
+                    case "e":
                         isGameOn = false;
                         break;
                     default:

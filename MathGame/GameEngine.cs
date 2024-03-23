@@ -8,6 +8,9 @@ namespace MathGame
         {
             Console.Clear();
             Console.WriteLine(message);
+
+            var difficulty = Helpers.DifficultyLevelChosen();
+
             var random = new Random();
             var score = 0;
 
@@ -15,8 +18,22 @@ namespace MathGame
             int secondNumber;
             for (int i = 0; i < 5; i++)
             {
-                firstNumber = random.Next(1, 9);
-                secondNumber = random.Next(1, 9);
+                if (difficulty == GameDifficulty.Easy)
+                {
+                    firstNumber = random.Next(1, 9);
+                    secondNumber = random.Next(1, 9);
+                }
+                else if(difficulty == GameDifficulty.Medium)
+                {
+                    firstNumber = random.Next(1, 100);
+                    secondNumber = random.Next(1, 100);
+                }
+                else
+                {
+                    firstNumber = random.Next(1, 1000);
+                    secondNumber = random.Next(1, 1000);
+                }
+                
 
                 Console.Write($"{firstNumber} + {secondNumber} = ");
 
@@ -38,12 +55,15 @@ namespace MathGame
             }
             Console.WriteLine($"Game Over. Your score is {score}. Press Any key to go back to menu.");
             Console.ReadLine();
-            Helpers.AddToHistory(score, GameType.Addition);
+            Helpers.AddToHistory(score, GameType.Addition,difficulty);
         }
         internal void SubtractionGame(string message)
         {
             Console.Clear();
             Console.WriteLine(message);
+
+            var difficulty = Helpers.DifficultyLevelChosen();
+
             var random = new Random();
             var score = 0;
 
@@ -51,8 +71,22 @@ namespace MathGame
             int secondNumber;
             for (int i = 0; i < 5; i++)
             {
-                firstNumber = random.Next(1, 9);
-                secondNumber = random.Next(1, 9);
+                if (difficulty == GameDifficulty.Easy)
+                {
+                    firstNumber = random.Next(1, 9);
+                    secondNumber = random.Next(1, 9);
+                }
+                else if (difficulty == GameDifficulty.Medium)
+                {
+                    firstNumber = random.Next(1, 100);
+                    secondNumber = random.Next(1, 100);
+                }
+                else
+                {
+                    firstNumber = random.Next(1, 1000);
+                    secondNumber = random.Next(1, 1000);
+                }
+
                 Console.Write($"{firstNumber} - {secondNumber} = ");
 
                 var result = Console.ReadLine();
@@ -72,12 +106,15 @@ namespace MathGame
             }
             Console.WriteLine($"Game Over. Your score is {score}. Press Any kkey to go back to menu.");
             Console.ReadLine();
-            Helpers.AddToHistory(score, GameType.Subtraction);
+            Helpers.AddToHistory(score, GameType.Subtraction, difficulty);
         }
         internal void MultiplicationGame(string message)
         {
             Console.Clear();
             Console.WriteLine(message);
+
+            var difficulty = Helpers.DifficultyLevelChosen();
+
             var random = new Random();
             var score = 0;
 
@@ -85,9 +122,22 @@ namespace MathGame
             int secondNumber;
             for (int i = 0; i < 5; i++)
             {
-                firstNumber = random.Next(1, 9);
-                secondNumber = random.Next(1, 9);
-                
+                if (difficulty == GameDifficulty.Easy)
+                {
+                    firstNumber = random.Next(1, 9);
+                    secondNumber = random.Next(1, 9);
+                }
+                else if (difficulty == GameDifficulty.Medium)
+                {
+                    firstNumber = random.Next(1, 50);
+                    secondNumber = random.Next(1, 50);
+                }
+                else
+                {
+                    firstNumber = random.Next(1, 100);
+                    secondNumber = random.Next(1, 100);
+                }
+
                 Console.Write($"{firstNumber} * {secondNumber} = ");
 
                 var result = Console.ReadLine();
@@ -108,7 +158,7 @@ namespace MathGame
             }
             Console.WriteLine($"Game Over. Your score is {score}. Press Any kkey to go back to menu.");
             Console.ReadLine();
-            Helpers.AddToHistory(score, GameType.Multiplication);
+            Helpers.AddToHistory(score, GameType.Multiplication, difficulty);
         }
         internal void DivisionGame(string message)
         {
@@ -117,7 +167,9 @@ namespace MathGame
             var score = 0;
             for (int i = 0; i < 5; i++)
             {
-                var divisionNumbers = Helpers.GetDivisionNumbers();
+                var difficulty = Helpers.DifficultyLevelChosen();
+                var divisionNumbers = Helpers.GetDivisionNumbers(difficulty);
+
                 var firstNumber = divisionNumbers[0];
                 var secondNumber = divisionNumbers[1];
 
@@ -141,7 +193,7 @@ namespace MathGame
             }
             Console.WriteLine($"Game Over. Your score is {score}. Press Any kkey to go back to menu.");
             Console.ReadLine();
-            Helpers.AddToHistory(score, GameType.Division);
+            //Helpers.AddToHistory(score, GameType.Division, difficulty);
         }
     }
 }
