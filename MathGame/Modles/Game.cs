@@ -1,4 +1,4 @@
-﻿namespace MathGame.Modles;
+﻿namespace MathGame.basemkasem.Modles;
 
 internal class Game
 {
@@ -10,7 +10,7 @@ internal class Game
     //}
 
     public DateTime Date { get; set; }
-    public int Score {  get; set; }
+    public int Score { get; set; }
     public GameType Type { get; set; }
     public GameDifficulty Difficulty { get; set; }
 }

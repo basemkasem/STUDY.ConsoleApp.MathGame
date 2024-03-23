@@ -1,6 +1,6 @@
-﻿using MathGame.Modles;
+﻿using MathGame.basemkasem.Modles;
 
-namespace MathGame
+namespace MathGame.basemkasem
 {
     internal class GameEngine
     {
@@ -23,7 +23,7 @@ namespace MathGame
                     firstNumber = random.Next(1, 9);
                     secondNumber = random.Next(1, 9);
                 }
-                else if(difficulty == GameDifficulty.Medium)
+                else if (difficulty == GameDifficulty.Medium)
                 {
                     firstNumber = random.Next(1, 100);
                     secondNumber = random.Next(1, 100);
@@ -33,7 +33,7 @@ namespace MathGame
                     firstNumber = random.Next(1, 1000);
                     secondNumber = random.Next(1, 1000);
                 }
-                
+
 
                 Console.Write($"{firstNumber} + {secondNumber} = ");
 
@@ -55,7 +55,7 @@ namespace MathGame
             }
             Console.WriteLine($"Game Over. Your score is {score}. Press Any key to go back to menu.");
             Console.ReadLine();
-            Helpers.AddToHistory(score, GameType.Addition,difficulty);
+            Helpers.AddToHistory(score, GameType.Addition, difficulty);
         }
         internal void SubtractionGame(string message)
         {

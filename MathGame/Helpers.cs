@@ -1,6 +1,6 @@
-﻿using MathGame.Modles;
+﻿using MathGame.basemkasem.Modles;
 
-namespace MathGame
+namespace MathGame.basemkasem
 {
     internal class Helpers
     {
@@ -80,14 +80,14 @@ namespace MathGame
 
         internal static string? ValidateResult(string result)
         {
-            while (string.IsNullOrEmpty(result) || !Int32.TryParse(result, out _))
+            while (string.IsNullOrEmpty(result) || !int.TryParse(result, out _))
             {
                 Console.WriteLine("The answer needs to be an interger. Try again");
                 result = Console.ReadLine();
             }
             return result;
         }
-        
+
         internal static GameDifficulty DifficultyLevelChosen()
         {
             Console.WriteLine(@"Choose the difficulty level: 
