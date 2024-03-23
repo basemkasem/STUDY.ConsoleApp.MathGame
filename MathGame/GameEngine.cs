@@ -17,8 +17,13 @@ namespace MathGame
             {
                 firstNumber = random.Next(1, 9);
                 secondNumber = random.Next(1, 9);
+
                 Console.Write($"{firstNumber} + {secondNumber} = ");
+
                 var result = Console.ReadLine();
+
+                result = Helpers.ValidateResult(result);
+
                 if (int.Parse(result) == firstNumber + secondNumber)
                 {
                     Console.WriteLine("Correct answer. Type any key for the next question");
@@ -49,7 +54,10 @@ namespace MathGame
                 firstNumber = random.Next(1, 9);
                 secondNumber = random.Next(1, 9);
                 Console.Write($"{firstNumber} - {secondNumber} = ");
+
                 var result = Console.ReadLine();
+                result = Helpers.ValidateResult(result);
+
                 if (int.Parse(result) == firstNumber - secondNumber)
                 {
                     Console.WriteLine("Correct answer. Type any key for the next question");
@@ -79,8 +87,13 @@ namespace MathGame
             {
                 firstNumber = random.Next(1, 9);
                 secondNumber = random.Next(1, 9);
+                
                 Console.Write($"{firstNumber} * {secondNumber} = ");
+
                 var result = Console.ReadLine();
+
+                result = Helpers.ValidateResult(result);
+
                 if (int.Parse(result) == firstNumber * secondNumber)
                 {
                     Console.WriteLine("Correct answer. Type any key for the next question");
@@ -109,7 +122,11 @@ namespace MathGame
                 var secondNumber = divisionNumbers[1];
 
                 Console.Write($"{firstNumber} / {secondNumber} = ");
+
                 var result = Console.ReadLine();
+
+                result = Helpers.ValidateResult(result);
+
                 if (int.Parse(result) == firstNumber / secondNumber)
                 {
                     Console.WriteLine("Correct answer. Type any key for the next question");
