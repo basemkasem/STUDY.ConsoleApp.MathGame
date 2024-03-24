@@ -64,12 +64,9 @@ namespace MathGame.basemkasem
                 }
                 else
                 {
-                    firstNumber = random.Next(1, 999);
+                    firstNumber = random.Next(1, 9999);
                     secondNumber = random.Next(1, 999);
                 }
-
-                firstNumber = random.Next(1, 99);
-                secondNumber = random.Next(1, 99);
             } while (firstNumber % secondNumber != 0);
 
             result[0] = firstNumber;
@@ -98,17 +95,14 @@ namespace MathGame.basemkasem
             result = ValidateResult(result);
             do
             {
-                switch (result)
-                {
-                    case "1":
-                        return GameDifficulty.Easy;
-                    case "2":
-                        return GameDifficulty.Medium;
-                    case "3":
-                        return GameDifficulty.Hard;
-                    default:
-                        break;
-                }
+                if (result == "1")
+                    return GameDifficulty.Easy;
+                else if (result == "2")
+                    return GameDifficulty.Medium;
+                else if (result == "3")
+                    return GameDifficulty.Hard;
+                else
+                    continue;
             } while (true);
 
         }

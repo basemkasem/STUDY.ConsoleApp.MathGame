@@ -1,5 +1,4 @@
-﻿using MathGame;
-using MathGame.basemkasem;
+﻿using MathGame.basemkasem;
 
 var menu = new Menu();
 

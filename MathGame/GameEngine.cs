@@ -164,10 +164,10 @@ namespace MathGame.basemkasem
         {
             Console.Clear();
             Console.WriteLine(message);
+            var difficulty = Helpers.DifficultyLevelChosen();
             var score = 0;
             for (int i = 0; i < 5; i++)
             {
-                var difficulty = Helpers.DifficultyLevelChosen();
                 var divisionNumbers = Helpers.GetDivisionNumbers(difficulty);
 
                 var firstNumber = divisionNumbers[0];
@@ -191,9 +191,9 @@ namespace MathGame.basemkasem
                     Console.ReadLine();
                 }
             }
-            Console.WriteLine($"Game Over. Your score is {score}. Press Any kkey to go back to menu.");
+            Console.WriteLine($"Game Over. Your score is {score}. Press Any key to go back to menu.");
             Console.ReadLine();
-            //Helpers.AddToHistory(score, GameType.Division, difficulty);
+            Helpers.AddToHistory(score, GameType.Division, difficulty);
         }
     }
 }
